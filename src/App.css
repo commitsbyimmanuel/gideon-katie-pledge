@@ -1,0 +1,374 @@
+/* App Container */
+.pledge-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.pledge-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.hearts-decoration {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.pledge-title {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #ff6b9d, #c44569, #ff6b9d);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.pledge-subtitle {
+  font-size: 1.4rem;
+  color: #888;
+  font-weight: 400;
+  margin: 0.5rem 0 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Progress Section */
+.progress-section {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d9ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.progress-bar {
+  height: 24px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b9d, #c44569, #ff4757);
+  border-radius: 12px;
+  position: relative;
+  transition: width 0.5s ease-out;
+  box-shadow: 0 0 20px rgba(255,107,157,0.5);
+}
+
+.progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  border-radius: 12px 12px 0 0;
+}
+
+/* Checkpoints */
+.checkpoints {
+  position: relative;
+  margin-top: 15px;
+}
+
+.checkpoint {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.checkpoint-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 14px;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.checkpoint.reached .checkpoint-marker {
+  background: linear-gradient(135deg, #00d9ff, #00ff88);
+  border-color: #00ff88;
+  color: #1a1a1a;
+  box-shadow: 0 0 15px rgba(0,255,136,0.5);
+}
+
+.goal-marker {
+  font-size: 18px;
+  background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
+  border-color: #ffd700 !important;
+}
+
+.checkpoint-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkpoint-destination {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.checkpoint-cost {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* Test Controls */
+.test-controls {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.test-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.test-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.test-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,107,157,0.5);
+}
+
+.test-value {
+  text-align: center;
+  font-weight: 600;
+  color: #ff6b9d;
+}
+
+/* Pledge Form Section */
+.pledge-form-section {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pledge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #666;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #ff6b9d;
+  background: rgba(255,107,157,0.1);
+  box-shadow: 0 0 15px rgba(255,107,157,0.2);
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group select option {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/* Submit Button */
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255,107,157,0.4);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255,107,157,0.5);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+}
+
+/* Footer */
+.pledge-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .pledge-container {
+    padding: 1rem;
+  }
+
+  .pledge-title {
+    font-size: 2rem;
+  }
+
+  .pledge-subtitle {
+    font-size: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .progress-section,
+  .pledge-form-section {
+    padding: 1.5rem;
+  }
+
+  .checkpoint-destination {
+    font-size: 0.75rem;
+  }
+
+  .checkpoint-cost {
+    font-size: 0.65rem;
+  }
+}
